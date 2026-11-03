@@ -16,8 +16,8 @@
 
   Andi menerima : ['server: pesan diterima, diteruskan ke 0 peserta lain', 'server: Sari bergabung', 'Sari: sari di sini', 'server: pesan diterima, diteruskan ke 1 peserta lain']
   Sari menerima : ['server: pesan diterima, diteruskan ke 1 peserta lain', 'Andi: halo sari']
-[diskusi] Sari keluar
 [diskusi] Andi keluar
+[diskusi] Sari keluar
 [diskusi] P1 bergabung
 [diskusi] P1: hi dari P1
 [diskusi] P2 bergabung
@@ -25,8 +25,8 @@
 [diskusi] P3 bergabung
 [diskusi] P3: hi dari P3
 [diskusi] P1: siaran
-[diskusi] P1 keluar
 [diskusi] P3 keluar
+[diskusi] P1 keluar
 [diskusi] P2 keluar
 
 Field Mahasiswa menurut stub lama: ['nim', 'nama', 'ipk']
@@ -35,7 +35,7 @@ hasField prodi? False
 bytes_ulang_hex: 0a07323032333030311204416e64691914ae47e17a140a40220b496e666f726d6174696b61
 
 
-  serial=1031 ms async=115 ms speedup=9.0x
+  serial=1027 ms async=116 ms speedup=8.8x
 
 test_get_mahasiswa (test_l21.TestDasarDanL21.test_get_mahasiswa) ... ok
 test_get_not_found (test_l21.TestDasarDanL21.test_get_not_found) ... ok
@@ -59,6 +59,6 @@ test_rpcerror_pada_future (test_l25.TestL25.test_rpcerror_pada_future) ... ok
 test_sepuluh_future (test_l25.TestL25.test_sepuluh_future) ... ok
 
 ----------------------------------------------------------------------
-Ran 20 tests in 3.894s
+Ran 20 tests in 3.939s
 
 OK

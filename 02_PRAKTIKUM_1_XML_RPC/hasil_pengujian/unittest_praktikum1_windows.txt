@@ -1,5 +1,5 @@
 
-  lokal=0.000034s  rpc=0.143572s  rasio=4235x
+  lokal=0.000030s  rpc=0.183054s  rasio=6061x
 
   koneksi diputus -> JARINGAN: [ConnectionAbortedError] Koneksi diputus server: [WinError 10053] An established connection was aborted by the software in your host machine
 
@@ -30,6 +30,6 @@ test_protocol_error_path_salah (test_l15.TestL15.test_protocol_error_path_salah)
 test_server_dimatikan_saat_client_aktif (test_l15.TestL15.test_server_dimatikan_saat_client_aktif) ... ok
 
 ----------------------------------------------------------------------
-Ran 23 tests in 4.847s
+Ran 23 tests in 5.385s
 
 OK

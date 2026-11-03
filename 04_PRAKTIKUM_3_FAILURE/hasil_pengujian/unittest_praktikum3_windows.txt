@@ -1,5 +1,5 @@
 
-  throughput 1/4/10 worker = 9.8 / 38.8 / 91.9 req/s
+  throughput 1/4/10 worker = 9.8 / 38.3 / 89.0 req/s
 
 test_20_transfer_tanpa_lambat (test_l31.TestL31.test_20_transfer_tanpa_lambat) ... ok
 test_id_sama_dieksekusi_sekali (test_l31.TestL31.test_id_sama_dieksekusi_sekali) ... ok
@@ -17,6 +17,6 @@ test_throughput_naik_dengan_worker (test_l34.TestL34.test_throughput_naik_dengan
 test_failover (test_l35.TestL35.test_failover) ... ok
 
 ----------------------------------------------------------------------
-Ran 14 tests in 24.767s
+Ran 14 tests in 24.614s
 
 OK
