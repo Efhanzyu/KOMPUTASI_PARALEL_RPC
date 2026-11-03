@@ -1,0 +1,10 @@
+Server 1 (50051) dan server 2 (50052) berjalan.
+[1] Terhubung ke localhost:50051: Andi, IPK 3.26
+[2] Mematikan server 1 ...
+localhost:50051 UNAVAILABLE -> pindah ke localhost:50052
+[3] Setelah failover, dilayani oleh localhost:50052: Andi, IPK 3.26
+[4] Permintaan berikutnya tetap ke localhost:50052: Sari, IPK 3.68
+[5] NIM salah -> NOT_FOUND (BUKAN UNAVAILABLE, tidak pindah server; tetap localhost:50052)
+localhost:50052 UNAVAILABLE -> pindah ke localhost:50051
+[6] Semua server mati -> UNAVAILABLE dilempar ke pemanggil setelah mencoba semua server
+Riwayat pindah server: ['localhost:50051 UNAVAILABLE -> pindah ke localhost:50052', 'localhost:50052 UNAVAILABLE -> pindah ke localhost:50051']

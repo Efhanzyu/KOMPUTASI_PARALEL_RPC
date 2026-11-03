@@ -1,0 +1,35 @@
+
+  lokal=0.000034s  rpc=0.143572s  rasio=4235x
+
+  koneksi diputus -> JARINGAN: [ConnectionAbortedError] Koneksi diputus server: [WinError 10053] An established connection was aborted by the software in your host machine
+
+  setelah server mati -> JARINGAN: [ConnectionRefusedError] Server tidak berjalan / port ditolak: [WinError 10061] No connection could be made because the target machine actively refused it
+
+test_akar (test_l11.TestL11.test_akar) ... ok
+test_akar_negatif_fault (test_l11.TestL11.test_akar_negatif_fault) ... ok
+test_dasar (test_l11.TestL11.test_dasar) ... ok
+test_list_methods_lengkap (test_l11.TestL11.test_list_methods_lengkap) ... ok
+test_pangkat (test_l11.TestL11.test_pangkat) ... ok
+test_contoh_modul (test_l12.TestL12.test_contoh_modul) ... ok
+test_float_dan_negatif (test_l12.TestL12.test_float_dan_negatif) ... ok
+test_kosong_fault (test_l12.TestL12.test_kosong_fault) ... ok
+test_marshalling_list_dan_dict (test_l12.TestL12.test_marshalling_list_dan_dict) ... ok
+test_tidak_valid_fault (test_l12.TestL12.test_tidak_valid_fault) ... ok
+test_alternatif_string_iso_untuk_datetime (test_l13.TestL13.test_alternatif_string_iso_untuk_datetime) ... ok
+test_alternatif_string_untuk_bilangan_besar (test_l13.TestL13.test_alternatif_string_untuk_bilangan_besar) ... ok
+test_datetime_diterima_sebagai_DateTime (test_l13.TestL13.test_datetime_diterima_sebagai_DateTime) ... ok
+test_int_batas_dalam_rentang (test_l13.TestL13.test_int_batas_dalam_rentang) ... ok
+test_int_di_atas_batas_overflow_di_client (test_l13.TestL13.test_int_di_atas_batas_overflow_di_client) ... ok
+test_mikrodetik_hilang (test_l13.TestL13.test_mikrodetik_hilang) ... ok
+test_overflow_di_sisi_server_menjadi_fault (test_l13.TestL13.test_overflow_di_sisi_server_menjadi_fault) ... ok
+test_100_panggilan_rpc_dan_lokal (test_l14.TestL14.test_100_panggilan_rpc_dan_lokal) ... ok
+test_argumen_tidak_bisa_dimarshalling (test_l15.TestL15.test_argumen_tidak_bisa_dimarshalling) ... ok
+test_fault_berbeda_dari_error_jaringan (test_l15.TestL15.test_fault_berbeda_dari_error_jaringan) ... ok
+test_koneksi_diputus_server (test_l15.TestL15.test_koneksi_diputus_server) ... ok
+test_protocol_error_path_salah (test_l15.TestL15.test_protocol_error_path_salah) ... ok
+test_server_dimatikan_saat_client_aktif (test_l15.TestL15.test_server_dimatikan_saat_client_aktif) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 4.847s
+
+OK

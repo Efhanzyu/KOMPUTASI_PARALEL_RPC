@@ -1,0 +1,17 @@
+# L3.3 Race condition (hasil aktual)
+
+Target tanpa race: A=500, B=1000, total=1500, transaksi=50.
+
+## Bagian 1 - Pengujian dasar (sesuai modul, tanpa instrumentasi)
+
+| Kondisi | Saldo A | Saldo B | Total | Transaksi dieksekusi | Sukses | Gagal |
+|---|---:|---:|---:|---:|---:|---:|
+| DENGAN LOCK (1 eksekusi) | 500 | 1000 | 1500 | 50 | 50 | 0 |
+| TANPA LOCK (1 eksekusi) | 500 | 1000 | 1500 | 50 | 50 | 0 |
+
+Pengulangan 20x: DENGAN LOCK menyimpang 0/20 eksekusi; TANPA LOCK menyimpang 0/20 eksekusi.
+Instrumentasi: TANPA LOCK menyimpang 5/5; DENGAN LOCK menyimpang 0/5.
+| TANPA LOCK | 990 | 510 | 10 |
+| DENGAN LOCK | 990 | 510 | 1 |
+
+Disimpan di hasil_pengujian/L3_3_hasil.md

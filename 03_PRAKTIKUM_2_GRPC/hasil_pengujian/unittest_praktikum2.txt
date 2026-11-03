@@ -1,0 +1,65 @@
+test_get_mahasiswa (test_l21.TestDasarDanL21.test_get_mahasiswa) ... ok
+test_get_not_found (test_l21.TestDasarDanL21.test_get_not_found) ... ok
+test_hanya_data_valid_dihitung (test_l21.TestDasarDanL21.test_hanya_data_valid_dihitung) ... ok
+test_lebih_dari_tiga (test_l21.TestDasarDanL21.test_lebih_dari_tiga) ... ok
+test_stream_kosong (test_l21.TestDasarDanL21.test_stream_kosong) ... ok
+test_stream_nilai_bertahap (test_l21.TestDasarDanL21.test_stream_nilai_bertahap) ... ok
+test_stream_not_found (test_l21.TestDasarDanL21.test_stream_not_found) ... I1102 06:29:27.130702     472 chttp2_transport.cc:1403] ipv4:127.0.0.1:35673: Got goaway [2] err=UNAVAILABLE:GOAWAY received; Error code: 2; Debug Text: Cancelling all calls {http2_error:2}
+ok
+test_tambah_nilai_dan_invalid (test_l21.TestDasarDanL21.test_tambah_nilai_dan_invalid) ... ok
+test_tiga_nilai (test_l21.TestDasarDanL21.test_tiga_nilai) ... ok
+test_client_disconnect_dibersihkan (test_l22.TestL22.test_client_disconnect_dibersihkan) ... [diskusi] Andi bergabung
+[diskusi] Andi: a
+[diskusi] Sari bergabung
+[diskusi] Sari: b
+[diskusi] Sari keluar
+[diskusi] Andi keluar
+ok
+test_dua_arah_satu_client (test_l22.TestL22.test_dua_arah_satu_client) ... [diskusi] Andi bergabung
+[diskusi] Andi: halo
+[diskusi] Andi: pesan kedua
+[diskusi] Andi keluar
+ok
+test_dua_client_saling_menerima (test_l22.TestL22.test_dua_client_saling_menerima) ... [diskusi] Andi bergabung
+[diskusi] Andi: andi di sini
+[diskusi] Sari bergabung
+[diskusi] Sari: sari di sini
+[diskusi] Andi: halo sari
+
+  Andi menerima : ['server: pesan diterima, diteruskan ke 0 peserta lain', 'server: Sari bergabung', 'Sari: sari di sini', 'server: pesan diterima, diteruskan ke 1 peserta lain']
+  Sari menerima : ['server: pesan diterima, diteruskan ke 1 peserta lain', 'Andi: halo sari']
+[diskusi] Andi keluar
+[diskusi] Sari keluar
+ok
+test_tiga_client_broadcast (test_l22.TestL22.test_tiga_client_broadcast) ... [diskusi] P1 bergabung
+[diskusi] P1: hi dari P1
+[diskusi] P2 bergabung
+[diskusi] P2: hi dari P2
+[diskusi] P3 bergabung
+[diskusi] P3: hi dari P3
+[diskusi] P1: siaran
+[diskusi] P2 keluar
+[diskusi] P3 keluar
+[diskusi] P1 keluar
+I1102 06:29:28.021845     536 chttp2_transport.cc:1403] ipv4:127.0.0.1:34725: Got goaway [2] err=UNAVAILABLE:GOAWAY received; Error code: 2; Debug Text: Cancelling all calls {http2_error:2}
+ok
+test_client_lama_vs_server_baru (test_l23.TestL23.test_client_lama_vs_server_baru) ... 
+Field Mahasiswa menurut stub lama: ['nim', 'nama', 'ipk']
+BERHASIL: nim=2023001 nama=Andi ipk=3.26
+hasField prodi? False
+bytes_ulang_hex: 0a07323032333030311204416e64691914ae47e17a140a40220b496e666f726d6174696b61
+
+ok
+test_stub_baru_membaca_pesan_lama (test_l23.TestL23.test_stub_baru_membaca_pesan_lama) ... ok
+test_stub_lama_dan_baru_berbeda (test_l23.TestL23.test_stub_lama_dan_baru_berbeda) ... ok
+test_round_trip_isi_sama (test_l24.TestL24.test_round_trip_isi_sama) ... ok
+test_ukuran_aktual (test_l24.TestL24.test_ukuran_aktual) ... ok
+test_rpcerror_pada_future (test_l25.TestL25.test_rpcerror_pada_future) ... ok
+test_sepuluh_future (test_l25.TestL25.test_sepuluh_future) ... 
+  serial=1013 ms async=106 ms speedup=9.6x
+ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 3.294s
+
+OK

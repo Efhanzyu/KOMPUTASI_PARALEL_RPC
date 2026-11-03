@@ -1,0 +1,13 @@
+Server gRPC berjalan di port 50051 (max_workers=10)...  Ctrl+C untuk berhenti
+[diskusi] Sari bergabung
+[diskusi] Sari: halo semua!
+[diskusi] Sari: pesan otomatis ke-1
+[diskusi] Andi bergabung
+[diskusi] Andi: halo semua!
+[diskusi] Sari: pesan otomatis ke-2
+[diskusi] Andi: pesan otomatis ke-1
+[diskusi] Sari: pesan otomatis ke-3
+[diskusi] Andi: pesan otomatis ke-2
+[diskusi] Andi: pesan otomatis ke-3
+[diskusi] Sari keluar
+[diskusi] Andi keluar

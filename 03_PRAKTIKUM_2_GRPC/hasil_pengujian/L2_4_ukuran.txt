@@ -1,0 +1,33 @@
+Ukuran dalam byte (XML dikodekan UTF-8). Selisih = XML - Protobuf.
+Persen hemat = selisih / ukuran XML x 100%.  Rasio = XML / Protobuf.
+
+| Data | Protobuf (B) | XML-RPC (B) | Selisih (B) | Hemat (%) | Rasio |
+|---|---:|---:|---:|---:|---:|
+| Andi (nim, nama, ipk) | 24 | 350 | 326 | 93.14 | 14.58x |
+| Sari (nim, nama, ipk) | 24 | 350 | 326 | 93.14 | 14.58x |
+| Andi + prodi (4 field) | 37 | 432 | 395 | 91.44 | 11.68x |
+
+XML-RPC yang diukur (Andi, 3 field):
+<?xml version='1.0'?>
+<methodResponse>
+<params>
+<param>
+<value><struct>
+<member>
+<name>nim</name>
+<value><string>2023001</string></value>
+</member>
+<member>
+<name>nama</name>
+<value><string>Andi</string></value>
+</member>
+<member>
+<name>ipk</name>
+<value><double>3.26</double></value>
+</member>
+</struct></value>
+</param>
+</params>
+</methodResponse>
+
+Protobuf (hex, Andi 3 field): 0a07323032333030311204416e64691914ae47e17a140a40

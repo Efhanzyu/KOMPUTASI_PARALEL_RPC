@@ -1,0 +1,22 @@
+
+  throughput 1/4/10 worker = 9.8 / 38.8 / 91.9 req/s
+
+test_20_transfer_tanpa_lambat (test_l31.TestL31.test_20_transfer_tanpa_lambat) ... ok
+test_id_sama_dieksekusi_sekali (test_l31.TestL31.test_id_sama_dieksekusi_sekali) ... ok
+test_kesalahan_permanen_tidak_diulang (test_l31.TestL31.test_kesalahan_permanen_tidak_diulang) ... ok
+test_request_id_kosong_ditolak (test_l31.TestL31.test_request_id_kosong_ditolak) ... ok
+test_saldo_tidak_cukup_disimpan_dan_tidak_diubah (test_l31.TestL31.test_saldo_tidak_cukup_disimpan_dan_tidak_diubah) ... ok
+test_timeout_lalu_retry_id_tetap (test_l31.TestL31.test_timeout_lalu_retry_id_tetap) ... ok
+test_unavailable_diulang_lalu_menyerah (test_l31.TestL31.test_unavailable_diulang_lalu_menyerah) ... ok
+test_uuid_baru_menyebabkan_transfer_ganda (test_l32.TestL32.test_uuid_baru_menyebabkan_transfer_ganda) ... ok
+test_dengan_lock_selalu_benar (test_l33.TestL33.test_dengan_lock_selalu_benar) ... ok
+test_duplikat_bersamaan_dengan_lock_sekali (test_l33.TestL33.test_duplikat_bersamaan_dengan_lock_sekali) ... ok
+test_duplikat_bersamaan_tanpa_lock_lebih_dari_sekali (test_l33.TestL33.test_duplikat_bersamaan_tanpa_lock_lebih_dari_sekali) ... ok
+test_tanpa_lock_menyimpang_dengan_instrumentasi (test_l33.TestL33.test_tanpa_lock_menyimpang_dengan_instrumentasi) ... ok
+test_throughput_naik_dengan_worker (test_l34.TestL34.test_throughput_naik_dengan_worker) ... ok
+test_failover (test_l35.TestL35.test_failover) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 24.767s
+
+OK

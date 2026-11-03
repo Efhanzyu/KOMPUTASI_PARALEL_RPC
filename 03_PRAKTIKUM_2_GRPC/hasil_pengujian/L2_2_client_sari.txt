@@ -1,0 +1,10 @@
+[server] pesan diterima, diteruskan ke 0 peserta lain
+[server] pesan diterima, diteruskan ke 0 peserta lain
+[server] Andi bergabung
+[Andi] halo semua!
+[server] pesan diterima, diteruskan ke 1 peserta lain
+[Andi] pesan otomatis ke-1
+[server] pesan diterima, diteruskan ke 1 peserta lain
+[Andi] pesan otomatis ke-2
+[Andi] pesan otomatis ke-3
+Keluar dari ruang diskusi.

@@ -1,0 +1,8 @@
+[server] pesan diterima, diteruskan ke 1 peserta lain
+[Sari] pesan otomatis ke-2
+[server] pesan diterima, diteruskan ke 1 peserta lain
+[Sari] pesan otomatis ke-3
+[server] pesan diterima, diteruskan ke 1 peserta lain
+[server] pesan diterima, diteruskan ke 1 peserta lain
+[server] Sari keluar
+Keluar dari ruang diskusi.

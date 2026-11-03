@@ -1,0 +1,5 @@
+  kirim Aljabar=80
+  kirim Kalkulus=75
+  kirim Fisika=90
+  kirim Statistika=88
+Respons: True - 4 nilai tersimpan

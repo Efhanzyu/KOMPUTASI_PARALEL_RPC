@@ -1,0 +1,4 @@
+max_workers,waktu_total_s,throughput_req_s,latensi_rata2_ms,latensi_min_ms,latensi_p95_ms,latensi_maks_ms,sukses,gagal
+1,20.2274,9.8876,1926.3728,102.4396,2047.7871,2048.3984,200,0
+4,5.0693,39.4535,486.0069,101.9174,508.7550,511.0350,200,0
+10,2.0506,97.5326,199.4223,105.5822,206.5913,209.4356,200,0

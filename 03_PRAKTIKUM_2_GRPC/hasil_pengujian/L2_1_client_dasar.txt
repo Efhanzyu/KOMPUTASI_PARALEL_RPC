@@ -1,0 +1,8 @@
+GetMahasiswa : Andi - IPK 3.26 - prodi 'Informatika'
+TambahNilai  : Nilai tersimpan
+StreamNilai  :
+   Basis Data: 85.0
+   Jaringan: 78.0
+   Komputasi Paralel: 88.0
+Error NIM salah   : StatusCode.NOT_FOUND - NIM 9999 tidak ditemukan
+Error nilai 150   : StatusCode.INVALID_ARGUMENT - Nilai harus 0-100

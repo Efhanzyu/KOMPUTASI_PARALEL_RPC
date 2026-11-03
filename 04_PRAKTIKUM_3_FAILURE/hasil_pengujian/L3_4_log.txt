@@ -1,0 +1,14 @@
+Mengukur max_workers=1 ...
+  total=20.227s throughput=9.89 req/s lat_rata2=1926.4 ms sukses=200 gagal=0
+Mengukur max_workers=4 ...
+  total=5.069s throughput=39.45 req/s lat_rata2=486.0 ms sukses=200 gagal=0
+Mengukur max_workers=10 ...
+  total=2.051s throughput=97.53 req/s lat_rata2=199.4 ms sukses=200 gagal=0
+
+| max_workers | Waktu total (s) | Throughput (req/s) | Latensi rata-rata (ms) | Gagal |
+|---|---:|---:|---:|---:|
+| 1 | 20.227 | 9.89 | 1926.4 | 0 |
+| 4 | 5.069 | 39.45 | 486.0 | 0 |
+| 10 | 2.051 | 97.53 | 199.4 | 0 |
+Grafik disimpan: hasil_pengujian/benchmark_results.png
+CSV disimpan   : /home/claude/KOMPUTASI_PARALEL_RPC/04_PRAKTIKUM_3_FAILURE/hasil_pengujian/benchmark_results.csv

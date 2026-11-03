@@ -1,0 +1,49 @@
+======================================================================
+BAGIAN A - PENGUJIAN ASLI (tanpa konversi)
+======================================================================
+Batas XML-RPC <int>/<i4> = 32-bit bertanda: -2^31 .. 2^31-1  (-2147483648 .. 2147483647)
+
+-- A1. Objek datetime.datetime --
+[SUKSES ] datetime dikirim ke server: datetime.datetime(2026, 11, 2, 13, 45, 30, 123456)
+          hasil = {'tipe_diterima': 'DateTime', 'nilai_diterima': '20261102T13:45:30'}
+[SUKSES ] datetime di-echo oleh server (server -> client)
+          hasil = <DateTime '20261102T13:45:30' at 0x2404c42f750>
+[SUKSES ] datetime dengan mikrodetik; bandingkan nilai balik
+          hasil = <DateTime '20261102T13:45:30' at 0x2404c42f850>
+          tipe balik = xmlrpc.client.DateTime, nilai = 20261102T13:45:30
+          mikrodetik hilang? asli=123456us (format XML hanya sampai detik)
+
+-- A2. Bilangan di batas 2^31 --
+[SUKSES ] 2**31 - 1 (nilai int32 maksimum, masih di dalam batas)
+          hasil = {'tipe_diterima': 'int', 'nilai_diterima': '2147483647'}
+[GAGAL  ] 2**31 (satu di atas batas)
+          OverflowError: int exceeds XML-RPC limits
+[GAGAL  ] 2**40
+          OverflowError: int exceeds XML-RPC limits
+[GAGAL  ] -(2**31) - 1 (satu di bawah batas negatif)
+          OverflowError: int exceeds XML-RPC limits
+[GAGAL  ] pangkat(2, 31): server harus mengembalikan 2**31 (marshalling di server)
+          Fault: <Fault 1: "<class 'OverflowError'>:int exceeds XML-RPC limits">
+[SUKSES ] pangkat(2, 30): hasil 2**30 masih di dalam batas
+          hasil = 1073741824
+
+======================================================================
+BAGIAN B - SOLUSI ALTERNATIF (BUKAN pengujian asli)
+======================================================================
+-- B1. datetime -> string ISO 8601 (direkonstruksi kembali di client) --
+[SUKSES ] kirim string ISO: 2026-11-02T13:45:30.123456
+          hasil = '2026-11-02T13:45:30.123456'
+          dikembalikan menjadi datetime di client: datetime.datetime(2026, 11, 2, 13, 45, 30, 123456)
+
+-- B2. datetime dengan xmlrpc.client.DateTime (jenis resmi XML-RPC) --
+[SUKSES ] kirim xmlrpc.client.DateTime
+          hasil = {'tipe_diterima': 'DateTime', 'nilai_diterima': '20261102T13:45:30'}
+
+-- B3. Bilangan besar sebagai string --
+[SUKSES ] kirim str(4611686018427387904)
+          hasil = '4611686018427387904'
+-- B4. Bilangan besar sebagai float (double 64-bit; presisi hanya 53 bit) --
+[SUKSES ] kirim float(2**40) = 1099511627776.0
+          hasil = {'tipe_diterima': 'float', 'nilai_diterima': '1099511627776.0'}
+[SUKSES ] kirim float(2**62) kehilangan ketelitian?
+          hasil = 4.611686018427388e+18

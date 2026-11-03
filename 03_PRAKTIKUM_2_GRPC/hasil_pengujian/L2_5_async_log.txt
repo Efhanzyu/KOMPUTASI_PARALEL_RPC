@@ -1,0 +1,13 @@
+
+[A. server apa adanya]  10 permintaan
+  serial    :      5.29 ms
+  asinkron  :      4.82 ms   (galat: 0)
+  speedup   :   1.10x   hasil identik: True
+
+[Penanganan RpcError] 2 berhasil, galat: [(1, <StatusCode.NOT_FOUND: (5, 'not found')>, 'NIM 9999 tidak ditemukan')]
+
+[B. SIMULASI latensi 100 ms/permintaan]  10 permintaan
+  serial    :   1013.71 ms
+  asinkron  :    103.49 ms   (galat: 0)
+  speedup   :   9.80x   hasil identik: True
+I1102 06:29:30.793567     601 chttp2_transport.cc:1403] ipv4:127.0.0.1:34517: Got goaway [2] err=UNAVAILABLE:GOAWAY received; Error code: 2; Debug Text: Cancelling all calls {http2_error:2}

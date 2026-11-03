@@ -1,0 +1,6 @@
+# Praktikum 1 hanya memakai library bawaan Python (xmlrpc).
+grpcio
+grpcio-tools
+# protobuf ikut terpasang bersama grpcio-tools
+# Hanya untuk grafik benchmark L3.4 (benchmark.py tetap berjalan tanpa ini, grafik dilewati):
+matplotlib

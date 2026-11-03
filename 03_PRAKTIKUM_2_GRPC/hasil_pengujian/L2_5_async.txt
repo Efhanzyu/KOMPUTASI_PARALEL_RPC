@@ -1,0 +1,4 @@
+| Skenario | Serial (ms) | Asinkron (ms) | Speedup | Hasil identik |
+|---|---:|---:|---:|---|
+| A. server apa adanya | 16.79 | 15.18 | 1.11x | True |
+| B. SIMULASI latensi 100 ms/permintaan | 1028.71 | 115.33 | 8.92x | True |

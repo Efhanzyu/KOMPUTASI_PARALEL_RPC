@@ -1,0 +1,4 @@
+jenis,jumlah,waktu_total_s,waktu_rata2_ms,host,port,label
+Fungsi lokal,100,0.000018,0.000178,127.0.0.1,59680,satu-komputer-loopback
+XML-RPC,100,0.181553,1.815535,127.0.0.1,59680,satu-komputer-loopback
+rasio_rpc_per_lokal,,10199.63,,127.0.0.1,59680,satu-komputer-loopback
