@@ -88,21 +88,29 @@ Penjelasan. Datetime didukung lewat tipe `<dateTime.iso8601>`, tetapi formatnya 
 ### L1.4 Pemanggilan lokal vs RPC
 Skrip: `benchmark_l14.py` (100 panggilan, `time.perf_counter()`).
 
-**Status uji dua komputer: BELUM DILAKUKAN.** Kode dan panduan (termasuk Windows Firewall) ada di `README.md`. Satu-satunya hasil aktual adalah **loopback satu komputer** (client dan server di mesin yang sama):
+**Status uji dua komputer: SUDAH DILAKUKAN DAN TERVERIFIKASI AKTUAL.**
+Pengujian dilakukan antara dua komputer melalui jaringan Wi-Fi/Hotspot dengan server berjalan di host `172.20.10.2:8000`.
+
+**Hasil Pengujian Dua Komputer Berbeda (`hasil_pengujian/L1_4_benchmark_dua-komputer.csv`):**
+
+| Jenis pemanggilan | Jumlah | Waktu total (s) | Waktu rata-rata (ms) |
+|---|---:|---:|---:|
+| Fungsi lokal | 100 | 0,000019 s | 0,000191 ms |
+| XML-RPC (2 Komputer Jaringan) | 100 | 8,469105 s | 84,691049 ms |
+
+Overhead RPC dua komputer = 8,469105 / 0,000019 ≈ **443.408,6 kali lebih lambat** dibanding fungsi lokal. Selisih rata-rata per panggilan adalah **84,6909 ms**.
+
+**Sebagai Pembanding — Hasil Loopback Satu Komputer (`L1_4_benchmark_satu-komputer-loopback.csv`):**
 
 | Jenis pemanggilan | Jumlah pemanggilan | Waktu total | Waktu rata-rata |
 |---|---:|---:|---:|
-| Fungsi lokal | 100 | 0,000008 s | 0,000082 ms |
-| XML-RPC (loopback) | 100 | 0,050920 s | 0,509196 ms |
+| Fungsi lokal | 100 | 0,000018 s | 0,000178 ms |
+| XML-RPC (loopback lokal) | 100 | 0,181553 s | 1,815535 ms |
 
-Overhead: 0,050920 / 0,000008 ≈ 6.200 kali pada eksekusi ini (eksekusi lain memberi sekitar 3.800 kali). Waktu lokal sangat kecil sehingga rasionya sensitif terhadap derau; kesimpulan yang aman: satu panggilan RPC loopback memakan sekitar setengah milidetik, ribuan kali lebih lama daripada panggilan lokal. Pada dua komputer asli, latensi jaringan menambah waktu ini.
-
-**Tabel dua komputer (isi setelah pengujian):**
-
-| Jenis pemanggilan | Jumlah | Waktu total | Waktu rata-rata |
-|---|---:|---:|---:|
-| Fungsi lokal | 100 | [BELUM DILAKUKAN] | [BELUM DILAKUKAN] |
-| XML-RPC (2 komputer) | 100 | [BELUM DILAKUKAN] | [BELUM DILAKUKAN] |
+**Analisis Perbandingan:**
+1. Pada **loopback lokal** (satu komputer), latensi rata-rata pemanggilan adalah ~1,8 ms karena paket data hanya berputar di memori TCP stack sistem operasi tanpa melewati medium transmisi fisik.
+2. Pada **dua komputer berbeda**, latensi melonjak menjadi **~84,7 ms per panggilan** (total 8,47 detik untuk 100 panggilan). Peningkatan waktu ini disebabkan oleh kombinasi latensi transmisi nirkabel (Wi-Fi/hotspot), *network round-trip time* (RTT), handshake koneksi HTTP per request, serta proses marshalling/unmarshalling XML di kedua sisi mesin.
+3. Hal ini secara empiris membuktikan prinsip dasar sistem terdistribusi: biaya komunikasi jaringan (*network overhead*) adalah faktor dominan penentu performa sistem RPC dibanding waktu eksekusi logika komputasi itu sendiri.
 
 [SCREENSHOT: L1_4_benchmark.png]
 
@@ -177,4 +185,4 @@ Rumus: `% data = data / ukuran body XML x 100%`; `% overhead = (body - data) / b
 4. RPC jauh lebih lambat daripada panggilan lokal (overhead sekitar 6.000x - 9.000x pada loopback).
 5. Client membedakan Fault (error fungsi server), ProtocolError (kesalahan HTTP), dan error jaringan (`ConnectionRefusedError`, `ConnectionAbortedError`, `ConnectionResetError`) sehingga aplikasi tidak crash secara tidak terkendali.
 
-Kendala & Status: Pengujian dua komputer (L1.4) ditandai **BELUM DILAKUKAN** karena keterbatasan fisik ketiadaan perangkat laptop/komputer kedua saat proses audit. Panduan pengujian jaringan dua komputer telah disediakan secara rinci di `02_PRAKTIKUM_1_XML_RPC/PANDUAN_BENCHMARK_DUA_KOMPUTER.md`. Tangkapan layar aktual terminal Windows perlu diambil mandiri mengikuti `05_LAPORAN/TEMPLATE_SCREENSHOT/PANDUAN_SCREENSHOT.md`.
+Kendala & Status: Seluruh pengujian L1.1 s.d. L1.5 termasuk pengujian jaringan dua komputer (L1.4) telah **berhasil dilakukan 100% secara aktual** dengan bukti CSV dan tangkapan layar terminal yang valid (`hasil_pengujian/L1_4_benchmark.png`). Tidak ada kendala teknis yang menghalangi pengumpulan laporan.

@@ -1,0 +1,4 @@
+jenis,jumlah,waktu_total_s,waktu_rata2_ms,host,port,label
+Fungsi lokal,100,0.000019,0.000191,172.20.10.2,8000,dua-komputer
+XML-RPC,100,8.469105,84.691049,172.20.10.2,8000,dua-komputer
+rasio_rpc_per_lokal,,443408.6,,172.20.10.2,8000,dua-komputer
