@@ -12,7 +12,7 @@
 | Total saldo akhir | 1500 |
 | Target (A / B / total) | 800 / 700 / 1500 |
 | Status pengujian | TIDAK SESUAI TARGET |
-| Durasi | 34.1 s |
+| Durasi | 34.2 s |
 
 Selisih A terhadap target 800: -120
 Eksekusi berlebih di server (eksekusi - 20 transfer logis): 12

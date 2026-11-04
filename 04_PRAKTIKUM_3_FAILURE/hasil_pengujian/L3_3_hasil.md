@@ -15,11 +15,11 @@ Pengulangan 20x: DENGAN LOCK menyimpang 0/20 eksekusi; TANPA LOCK menyimpang 0/2
 
 | Kondisi | Saldo A | Saldo B | Total | Transaksi dieksekusi | Sukses | Gagal |
 |---|---:|---:|---:|---:|---:|---:|
-| TANPA LOCK #1 | 920 | 570 | 1490 | 50 | 50 | 0 |
-| TANPA LOCK #2 | 890 | 610 | 1500 | 50 | 50 | 0 |
-| TANPA LOCK #3 | 890 | 610 | 1500 | 50 | 50 | 0 |
-| TANPA LOCK #4 | 950 | 550 | 1500 | 50 | 50 | 0 |
-| TANPA LOCK #5 | 930 | 560 | 1490 | 50 | 50 | 0 |
+| TANPA LOCK #1 | 840 | 670 | 1510 | 50 | 50 | 0 |
+| TANPA LOCK #2 | 870 | 640 | 1510 | 50 | 50 | 0 |
+| TANPA LOCK #3 | 870 | 620 | 1490 | 50 | 50 | 0 |
+| TANPA LOCK #4 | 890 | 630 | 1520 | 50 | 50 | 0 |
+| TANPA LOCK #5 | 880 | 630 | 1510 | 50 | 50 | 0 |
 | DENGAN LOCK #1 | 500 | 1000 | 1500 | 50 | 50 | 0 |
 | DENGAN LOCK #2 | 500 | 1000 | 1500 | 50 | 50 | 0 |
 | DENGAN LOCK #3 | 500 | 1000 | 1500 | 50 | 50 | 0 |
@@ -34,5 +34,5 @@ Yang benar: transfer dieksekusi SATU kali (A=990). Jeda 10 ms disisipkan agar in
 
 | Kondisi | Saldo A | Saldo B | Transaksi dieksekusi |
 |---|---:|---:|---:|
-| TANPA LOCK | 990 | 510 | 10 |
+| TANPA LOCK | 990 | 520 | 10 |
 | DENGAN LOCK | 990 | 510 | 1 |

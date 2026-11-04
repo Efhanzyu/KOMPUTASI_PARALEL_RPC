@@ -7,9 +7,9 @@ Batas XML-RPC <int>/<i4> = 32-bit bertanda: -2^31 .. 2^31-1  (-2147483648 .. 214
 [SUKSES ] datetime dikirim ke server: datetime.datetime(2026, 11, 2, 13, 45, 30, 123456)
           hasil = {'tipe_diterima': 'DateTime', 'nilai_diterima': '20261102T13:45:30'}
 [SUKSES ] datetime di-echo oleh server (server -> client)
-          hasil = <DateTime '20261102T13:45:30' at 0x2404c42f750>
+          hasil = <DateTime '20261102T13:45:30' at 0x1e2106b6c10>
 [SUKSES ] datetime dengan mikrodetik; bandingkan nilai balik
-          hasil = <DateTime '20261102T13:45:30' at 0x2404c42f850>
+          hasil = <DateTime '20261102T13:45:30' at 0x1e2106b4ed0>
           tipe balik = xmlrpc.client.DateTime, nilai = 20261102T13:45:30
           mikrodetik hilang? asli=123456us (format XML hanya sampai detik)
 

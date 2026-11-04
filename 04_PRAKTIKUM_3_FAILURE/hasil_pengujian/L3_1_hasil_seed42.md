@@ -12,4 +12,4 @@
 | Total saldo akhir | 1500 |
 | Target (A / B / total) | 800 / 700 / 1500 |
 | Status pengujian | LULUS |
-| Durasi | 25.1 s |
+| Durasi | 25.2 s |
