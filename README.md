@@ -1,4 +1,5 @@
 # Repositori Praktikum Komputasi Paralel dan Terdistribusi (KPT)
+
 ## Topik: Remote Procedure Call (RPC) — XML-RPC, gRPC & Protocol Buffers, dan Failure Handling
 
 Repositori ini berisi kode sumber lengkap, dokumentasi, pengujian unit, data benchmark riil (termasuk pengujian antar dua komputer fisik), serta bukti pendukung untuk **Tugas Individu Praktikum RPC**.
@@ -6,6 +7,7 @@ Repositori ini berisi kode sumber lengkap, dokumentasi, pengujian unit, data ben
 ---
 
 ## 📋 Daftar Isi
+
 1. [Ringkasan Praktikum](#-ringkasan-praktikum)
 2. [Struktur Direktori](#-struktur-direktori)
 3. [Kebutuhan Sistem & Instalasi](#-kebutuhan-sistem--instalasi)
@@ -24,12 +26,14 @@ Repositori ini berisi kode sumber lengkap, dokumentasi, pengujian unit, data ben
 Praktikum ini dibagi menjadi 3 modul utama:
 
 ### 1. Praktikum 1: XML-RPC (`02_PRAKTIKUM_1_XML_RPC`)
+
 - **Implementasi Layanan:** Kalkulator matematika dasar (`tambah`, `kurang`, `kali`, `bagi`), fungsi pangkat & akar kuadrat (L1.1), serta analisis statistik (`min`, `max`, `rata2`) dari list angka (L1.2).
 - **Eksplorasi Batas:** Analisis keterbatasan tipe data XML-RPC (batas integer bertanda 32-bit $-2^{31}$ s.d. $2^{31}-1$, hilangnya mikrodetik pada tipe `DateTime`) (L1.3).
 - **Benchmark Jaringan 2 Komputer:** Pengukuran latensi dan overhead pemanggilan fungsi lokal vs RPC melalui jaringan nyata (Wi-Fi/Hotspot) (L1.4).
 - **Penanganan Kegagalan:** Membedakan error aplikasi (`Fault`), HTTP error (`ProtocolError`), dan kegagalan soket jaringan (`ConnectionRefusedError`, `ConnectionAbortedError [WinError 10053]`) (L1.5).
 
 ### 2. Praktikum 2: gRPC & Protocol Buffers (`03_PRAKTIKUM_2_GRPC`)
+
 - **Kontrak Antarmuka (IDL):** Definisi service `LayananNilai` menggunakan `akademik.proto`.
 - **Pola Komunikasi Lengkap:**
   - *Unary RPC:* `GetMahasiswa`, `TambahNilai`
@@ -41,6 +45,7 @@ Praktikum ini dibagi menjadi 3 modul utama:
 - **Pemanggilan Asinkron:** Penggunaan `stub.future()` non-blocking dengan speedup konkurensi signifikan dibanding eksekusi serial (L2.5).
 
 ### 3. Praktikum 3: Failure Handling & Konkurensi (`04_PRAKTIKUM_3_FAILURE`)
+
 - **Semantik Idempotensi (At-Most-Once):** Penggunaan `request_id` unik untuk menjamin transaksi transfer bank tidak dieksekusi ganda saat klien melakukan *retry* akibat network timeout (L3.1).
 - **Simulasi Kerentanan Non-Idempotent:** Bukti terjadinya transfer berlebih (*double-spending*) jika *retry* membuat ID baru (L3.2).
 - **Konkurensi & Thread Safety:** Simulasi *race condition* / *lost update* pada 100 thread serentak tanpa proteksi vs integritas saldo dengan `threading.Lock` (L3.3).
@@ -104,11 +109,13 @@ KOMPUTASI_PARALEL_RPC/
 ## ⚙️ Kebutuhan Sistem & Instalasi
 
 ### 1. Prasyarat
+
 - **Sistem Operasi:** Windows 10/11 atau Linux
 - **Python:** Versi `3.10` atau `3.11` (direkomendasikan Python 3.11.9)
 - **PowerShell** (pada Windows)
 
 ### 2. Setup Virtual Environment
+
 Buka terminal PowerShell pada direktori root proyek:
 
 ```powershell
@@ -129,29 +136,36 @@ pip install -r requirements.txt
 ### 1. Praktikum 1: XML-RPC
 
 Masuk ke folder Praktikum 1:
+
 ```powershell
 cd .\02_PRAKTIKUM_1_XML_RPC
 ```
 
-* **Menjalankan Server Kalkulator:**
+- **Menjalankan Server Kalkulator:**
+
   ```powershell
   python server_kalkulator.py
   ```
+
   *(Server akan berjalan di port `8000` dan menampilkan daftar method yang terdaftar)*.
 
-* **Menjalankan Client Kalkulator:**
+- **Menjalankan Client Kalkulator:**
   Buka jendela terminal baru:
+
   ```powershell
   python client_kalkulator.py --tenang
   ```
+
   *(Untuk melihat detail XML request/response HTTP lengkap, jalankan tanpa flag `--tenang`: `python client_kalkulator.py`)*.
 
-* **Menjalankan Eksperimen Batas Integer & DateTime (L1.3):**
+- **Menjalankan Eksperimen Batas Integer & DateTime (L1.3):**
+
   ```powershell
   python l13_eksperimen.py
   ```
 
-* **Menjalankan Benchmark Latensi & Overhead (L1.4):**
+- **Menjalankan Benchmark Latensi & Overhead (L1.4):**
+
   ```powershell
   # Mode satu komputer (loopback localhost):
   python benchmark_l14.py
@@ -165,33 +179,40 @@ cd .\02_PRAKTIKUM_1_XML_RPC
 ### 2. Praktikum 2: gRPC & Protocol Buffers
 
 Masuk ke folder Praktikum 2:
+
 ```powershell
 cd .\03_PRAKTIKUM_2_GRPC
 ```
 
-* **Mengompilasi Ulang File `.proto` (Jika Diperlukan):**
+- **Mengompilasi Ulang File `.proto` (Jika Diperlukan):**
+
   ```powershell
   python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. akademik.proto
   ```
 
-* **Menjalankan Server gRPC:**
+- **Menjalankan Server gRPC:**
+
   ```powershell
   python server_grpc.py
   ```
+
   *(Server akan aktif di port `50051`)*.
 
-* **Menjalankan Client Dasar (Unary & Server Streaming):**
+- **Menjalankan Client Dasar (Unary & Server Streaming):**
+
   ```powershell
   python client_grpc.py
   ```
 
-* **Menjalankan Client Streaming (L2.1):**
+- **Menjalankan Client Streaming (L2.1):**
+
   ```powershell
   python client_grpc.py banyak
   ```
 
-* **Menjalankan Bidirectional Streaming Chat (L2.2):**
+- **Menjalankan Bidirectional Streaming Chat (L2.2):**
   Buka dua terminal terpisah:
+
   ```powershell
   # Terminal 1:
   python client_grpc.py diskusi Andi
@@ -200,19 +221,22 @@ cd .\03_PRAKTIKUM_2_GRPC
   python client_grpc.py diskusi Sari
   ```
 
-* **Uji Kompatibilitas Skema Protobuf (L2.3):**
+- **Uji Kompatibilitas Skema Protobuf (L2.3):**
+
   ```powershell
   cd client_lama
   python client_lama.py
   cd ..
   ```
 
-* **Benchmark Ukuran Payload Protobuf vs JSON (L2.4):**
+- **Benchmark Ukuran Payload Protobuf vs JSON (L2.4):**
+
   ```powershell
   python l24_ukuran.py
   ```
 
-* **Uji Pemanggilan Asinkron Future (L2.5):**
+- **Uji Pemanggilan Asinkron Future (L2.5):**
+
   ```powershell
   python l25_async.py
   ```
@@ -222,32 +246,39 @@ cd .\03_PRAKTIKUM_2_GRPC
 ### 3. Praktikum 3: Failure Handling & Konkurensi
 
 Masuk ke folder Praktikum 3:
+
 ```powershell
 cd .\04_PRAKTIKUM_3_FAILURE
 ```
 
-* **Uji Idempotensi Transfer Bank dengan `request_id` (L3.1):**
+- **Uji Idempotensi Transfer Bank dengan `request_id` (L3.1):**
+
   ```powershell
   python transfer_test.py --seed 42
   ```
 
-* **Simulasi Bahaya Transfer Non-Idempotent (L3.2):**
+- **Simulasi Bahaya Transfer Non-Idempotent (L3.2):**
+
   ```powershell
   python uuid_test.py --seed 42
   ```
 
-* **Uji Konkurensi & Race Condition dengan vs tanpa LOCK (L3.3):**
+- **Uji Konkurensi & Race Condition dengan vs tanpa LOCK (L3.3):**
+
   ```powershell
   python concurrency_test.py
   ```
 
-* **Benchmark Skalabilitas Worker Thread Pool (L3.4):**
+- **Benchmark Skalabilitas Worker Thread Pool (L3.4):**
+
   ```powershell
   python benchmark.py
   ```
+
   *(Menghasilkan tabel throughput dan berkas grafik visual `hasil_pengujian/benchmark_results.png`)*.
 
-* **Uji Client Failover Otomatis (L3.5):**
+- **Uji Client Failover Otomatis (L3.5):**
+
   ```powershell
   python failover_test.py
   ```
@@ -264,7 +295,8 @@ Jalankan perintah berikut di PowerShell dari direktori root proyek:
 powershell -ExecutionPolicy Bypass -File .\jalankan_semua_tes.ps1
 ```
 
-### Hasil Verifikasi Pengujian:
+### Hasil Verifikasi Pengujian
+
 ```text
 ============================================================
                     RINGKASAN HASIL TEST                    
@@ -302,15 +334,3 @@ STATUS KESELURUHAN: SEMUA UNIT TEST LULUS (57/57)!
 6. **Konkurensi & Skalabilitas:**
    - Pengujian 100 thread serentak tanpa proteksi sinkronisasi (`threading.Lock`) memicu *race condition* dan *lost updates*.
    - Throughput server gRPC berskala linier terhadap jumlah worker thread: meningkat dari **9.8 req/s** (1 worker) menjadi **89.0 req/s** (10 worker).
-
----
-
-## 📄 Dokumentasi Laporan
-
-Seluruh berkas dokumen laporan, lembar jawaban soal teori, serta aset gambar pengujian tersimpan rapi pada direktori [`05_LAPORAN/`](file:///d:/MATKUL/SEMESTER%205/KPT/KOMPUTASI_PARALEL_RPC/05_LAPORAN):
-
-* **[JAWABAN_LATIHAN_TEORI.md](file:///d:/MATKUL/SEMESTER%205/KPT/KOMPUTASI_PARALEL_RPC/05_LAPORAN/JAWABAN_LATIHAN_TEORI.md):** Jawaban lengkap 10 Soal Pilihan Ganda & 5 Soal Esai beserta analisis teoritisnya.
-* **[LAPORAN_PRAKTIKUM_1_XML_RPC.md](file:///d:/MATKUL/SEMESTER%205/KPT/KOMPUTASI_PARALEL_RPC/05_LAPORAN/LAPORAN_PRAKTIKUM_1_XML_RPC.md):** Laporan praktikum 1 lengkap dengan data pengujian 2 komputer asli.
-* **[LAPORAN_PRAKTIKUM_2_GRPC.md](file:///d:/MATKUL/SEMESTER%205/KPT/KOMPUTASI_PARALEL_RPC/05_LAPORAN/LAPORAN_PRAKTIKUM_2_GRPC.md):** Laporan praktikum 2 lengkap dengan skema proto, streaming, dan uji async.
-* **[LAPORAN_PRAKTIKUM_3_FAILURE.md](file:///d:/MATKUL/SEMESTER%205/KPT/KOMPUTASI_PARALEL_RPC/05_LAPORAN/LAPORAN_PRAKTIKUM_3_FAILURE.md):** Laporan praktikum 3 lengkap dengan idempotensi, konkurensi, dan failover.
-* **[SCREENSHOTS_LAMPIRAN_D/](file:///d:/MATKUL/SEMESTER%205/KPT/KOMPUTASI_PARALEL_RPC/05_LAPORAN/SCREENSHOTS_LAMPIRAN_D):** Folder berisi 14 berkas gambar PNG screenshot terminal resmi (B-01 s.d D-05) siap dimasukkan ke laporan akhir.
